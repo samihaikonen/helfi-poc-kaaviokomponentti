@@ -1,10 +1,15 @@
-# Reunaton tilastopaletti
+# POC kaaviokomponentti – reunaton tilastopaletti
 
-Prototyyppi: laadullinen tilastopaletti Helsingin (HDS) brändiväreistä viitenä vaihtoehtona (A–E). Jokainen väri erottuu valkoisesta pohjasta vähintään 3:1 (WCAG 2.2, 1.4.11).
+Prototyyppi: laadullinen tilastopaletti Helsingin (HDS) brändiväreistä kuutena vaihtoehtona. Jokainen väri erottuu valkoisesta pohjasta vähintään 3:1 (WCAG 2.2, 1.4.11).
 
-Sivulla on vaihtoehtojen vertailu, kontrastitaulukko, esimerkkikaaviot, värinäön simulointi ja CSS-muuttujat.
+- **1** · hel.fi:n nykyinen Tunnusvärit-paletti tummilla reunaviivoilla (vertailukohta)
+- **2A, 2B** · brändin päävärit, aina valkoisella erotinviivalla
+- **2C, 2D** · vaalea–tumma-vuorottelu, toimii ilman erotinviivaa
+- **3** · 2A:n värit ja kuviot
 
-**Live:** avaa `index.html` selaimessa tai katso GitHub Pages -versio.
+Sivulla on vaihtoehtojen vertailu, kontrastitaulukko, esimerkkikaaviot (pylväs, rengas, piirakka, viiva, kartta), värinäön simulointi ja CSS-muuttujat.
+
+**Live:** https://samihaikonen.github.io/helfi-reunaton-tilastopaletti/
 
 Esimerkkikaavioiden data on keksittyä. Tämä on ehdotus, ei virallinen ohje.
 
