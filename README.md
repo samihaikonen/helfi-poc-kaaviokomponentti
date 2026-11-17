@@ -9,7 +9,7 @@ Prototyyppi: laadullinen tilastopaletti Helsingin (HDS) brändiväreistä kuuten
 
 Sivulla on vaihtoehtojen vertailu, kontrastitaulukko, esimerkkikaaviot (pylväs, rengas, piirakka, viiva, kartta), värinäön simulointi ja CSS-muuttujat.
 
-**Live:** https://samihaikonen.github.io/helfi-reunaton-tilastopaletti/
+**Live:** https://samihaikonen.github.io/helfi-poc-kaaviokomponentti/
 
 Esimerkkikaavioiden data on keksittyä. Tämä on ehdotus, ei virallinen ohje.
 
