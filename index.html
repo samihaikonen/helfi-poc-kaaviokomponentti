@@ -104,7 +104,7 @@ footer{font-size:.8125rem;color:var(--muted);display:flex;flex-direction:column;
 <header>
   <div class="eyebrow">Helsingin kaupunki · tiedon visualisointi · ehdotus</div>
   <h1>POC kaaviokomponentti</h1>
-  <p class="lead">Laadullinen tilastopaletti Helsingin brändiväreistä kuutena vaihtoehtona. Jokainen väri erottuu valkoisesta pohjasta vähintään 3:1 (WCAG 2.2, 1.4.11). Vaihtoehto 1 on hel.fi:n nykyinen Tunnusvärit-paletti tummilla reunaviivoilla. Vaihtoehdot 2A ja 2B sekä 3 käyttävät brändin päävärejä ja ohutta valkoista erotinviivaa, ja 3 erottaa luokat myös kuvioilla. Vaihtoehdoissa 2C ja 2D myös vierekkäiset värit erottuvat toisistaan vähintään 3:1, joten ne toimivat ilman erotinviivaa. Vaihtoehdot 2 ja 3 eivät tarvitse tummia reunaviivoja.</p>
+  <p class="lead">Laadullinen tilastopaletti Helsingin brändiväreistä seitsemänä vaihtoehtona. Jokainen väri erottuu valkoisesta pohjasta vähintään 3:1 (WCAG 2.2, 1.4.11). Vaihtoehto 1 on hel.fi:n nykyinen Tunnusvärit-paletti tummilla reunaviivoilla. Vaihtoehdot 2A, 2B, 2E ja 3 käyttävät brändin päävärejä ja ohutta valkoista erotinviivaa. 2E erottaa luokat myös kirjaimilla ja 3 kuvioilla. Vaihtoehdoissa 2C ja 2D myös vierekkäiset värit erottuvat toisistaan vähintään 3:1, joten ne toimivat ilman erotinviivaa. Vaihtoehdot 2 ja 3 eivät tarvitse tummia reunaviivoja.</p>
 </header>
 
 <section aria-labelledby="h-vaihto">
@@ -119,6 +119,7 @@ footer{font-size:.8125rem;color:var(--muted);display:flex;flex-direction:column;
     <button type="button" id="btn2B" aria-pressed="false">2B · 5 väriä<small>Kupari tumma, viivalla</small></button>
     <button type="button" id="btn2C" aria-pressed="false">2C · 7 väriä<small>vain HDS-tokenit</small></button>
     <button type="button" id="btn2D" aria-pressed="false">2D · 8 väriä<small>yksi johdettu sävy</small></button>
+    <button type="button" id="btn2E" aria-pressed="false">2E · 5 väriä + kirjaimet<small>2A:n värit, luokat A–E</small></button>
     <button type="button" id="btn3" aria-pressed="false">3 · 5 väriä + kuviot<small>2A:n värit ja kuviot</small></button>
   </div>
   <label class="toggle"><input type="checkbox" id="sep"> Valkoinen erotinviiva (2 px)</label><span class="small" id="sepnote" hidden></span>
@@ -142,8 +143,8 @@ footer{font-size:.8125rem;color:var(--muted);display:flex;flex-direction:column;
   <h2 id="h-esim">Esimerkit</h2>
   <p class="small">Kaikki kaaviot käyttävät keksittyä esimerkkidataa. Kokeile yllä olevaa erotinviivavalintaa: ilman sitä kuvioissa ei ole yhtään reunaviivaa eikä rakoa.</p>
   <div class="grid2">
-    <figure class="chart"><h3>Viivakaavio ilman pisteitä</h3><div class="legend" id="lg-line"></div><svg id="line" viewBox="0 0 440 230" role="img" aria-label="Viivakaavio"></svg><p class="note" id="linenote"></p></figure>
-    <figure class="chart"><h3>Viivakaavio pisteillä</h3><div class="legend" id="lg-linep"></div><svg id="linep" viewBox="0 0 440 230" role="img" aria-label="Viivakaavio datapisteillä"></svg><p class="note">Jokaisella sarjalla on oma pistemuotonsa (ympyrä, neliö, kolmio, vinoneliö), joten sarjat erottuvat myös ilman väriä. Valkoinen reunus erottaa pisteen viivasta.</p></figure>
+    <figure class="chart"><h3>Viivakaavio, alku- ja loppupisteet, 4 sarjaa</h3><div class="legend" id="lg-line"></div><svg id="line" viewBox="0 0 440 230" role="img" aria-label="Viivakaavio"></svg><p class="note" id="linenote"></p></figure>
+    <figure class="chart"><h3>Viivakaavio pisteillä, 5 sarjaa</h3><div class="legend" id="lg-linep"></div><svg id="linep" viewBox="0 0 440 230" role="img" aria-label="Viivakaavio datapisteillä"></svg><p class="note">Jokaisella sarjalla on oma pistemuotonsa (ympyrä, neliö, kolmio, vinoneliö, alaspäin osoittava kolmio), joten sarjat erottuvat myös ilman väriä. Valkoinen reunus erottaa pisteen viivasta.</p></figure>
     <figure class="chart"><h3>Pinottu pylväs, 6 luokkaa</h3><div class="legend" id="lg-stack"></div><svg id="stack" viewBox="0 0 440 230" role="img" aria-label="Pinottu vaakapylväskaavio"></svg></figure>
     <figure class="chart"><h3>Ryhmitelty pylväs, 4 luokkaa</h3><div class="legend" id="lg-group"></div><svg id="group" viewBox="0 0 440 230" role="img" aria-label="Ryhmitelty pylväskaavio"></svg></figure>
     <figure class="chart"><h3>Rengaskaavio, 6 luokkaa</h3><div class="legend" id="lg-donut"></div><svg id="donut" viewBox="0 0 440 230" role="img" aria-label="Rengaskaavio"></svg><p class="note" id="donutnote"></p></figure>
@@ -254,6 +255,16 @@ const PAL={
     note:"Napsauta HEX-arvoa kopioidaksesi sen. ”Seuraava väri” näyttää kontrastin ilman erotinviivaa: vain Metro–Bussi täyttää 3:1, joten tätä vaihtoehtoa käytetään aina valkoisen erotinviivan kanssa. Kupari tumman ja Metron päällä käytetään mustaa tekstiä.",
     callout:"<strong>Vaihtoehdon 2A värisokeusturvallisempi versio.</strong> Spåra on vaihdettu Kupari tummaan (<span class=\"mono\">--color-copper-dark</span>). Heikoin sävyero kaikissa simulaatioissa paranee 5,7:stä 11,4:ään, ja Tiili–Spåra- sekä Spåra–Metro-sekaannukset poistuvat. Kontrasti naapureihin ei parane, joten erotinviiva on edelleen pakollinen.",
     cls:"b"},
+ "2E":{key:"2E",title:"Vaihtoehto 2E · 5 väriä + kirjaimet",sub:"Vaihtoehdon 2A värit, luokat merkitty kirjaimilla A–E",
+    ids:["bus","brickM","coat","tram","metro"], letters:["A","B","C","D","E"],
+    nx:["1,98","1,22","1,08","1,39","3,59"],
+    base:5, minAdj:"1,08", forceSep:true,
+    pros:["Tutut brändin päävärit, kaikki HDS-tokeneita","Kirjain kertoo luokan ilman väriä: värisokeus, mustavalkotuloste ja ruudunlukijan kanssa luettava taulukko eivät haittaa (WCAG 1.4.1)","Kirjaimet vievät tilaa: pienimpiin osiin mahtuu vain kirjain, ei arvoa"],
+    donut:"Kuusi luokkaa ei mahdu viiteen väriin, joten kaksi pienintä luokkaa on yhdistetty. Jokaisessa sektorissa on luokan kirjain ja arvo.",
+    cvd:"Värit sekoittuvat samoin kuin vaihtoehdossa 2A (Tiili–Spåra deuteranopiassa, Spåra–Metro protanopiassa), mutta kirjain kertoo luokan aina. Tämä täyttää myös WCAG 1.4.1:n, koska tieto ei ole pelkän värin varassa.",
+    note:"Napsauta HEX-arvoa kopioidaksesi sen. Kirjain näkyy selitteessä, kuvion päällä ja viivakaavion viivan päässä. Valkoinen kirjain Bussin, Tiilen, Vaakunan ja Spåran päällä on 4,62–11,98:1, musta kirjain Metron päällä 6,30:1.",
+    callout:"<strong>Väri ja kirjain yhdessä.</strong> Jokainen luokka saa kiinteän kirjaimen: A Bussi, B Tiili, C Vaakuna, D Spåra ja E Metro. Kirjain on selitteessä värimerkin sisällä ja toistuu kuviossa, joten luokan voi tunnistaa vertaamalla kirjaimia eikä värejä. Kirjaimet ovat visuaalisesti kevyempi tapa kuin kuviot (vaihtoehto 3), eivätkä ne aiheuta näköhaittoja. Pienissä osissa näytetään vain kirjain, isommissa kirjain ja arvo.",
+    cls:"b"},
  "3":{key:"3",title:"Vaihtoehto 3 · 5 väriä + kuviot",sub:"Vaihtoehdon 2A värit, luokat erotetaan myös kuviolla",
     ids:["bus","brickM","coat","tram","metro"],
     pats:["solid","diag","dots","horiz","cross"],
@@ -313,6 +324,7 @@ function paint(svg,i){
   if(kind==="cross"){el("rect",{x:0,y:0,width:1.5,height:10,fill:"#fff"},pt);el("rect",{x:0,y:0,width:10,height:1.5,fill:"#fff"},pt)}
   return `url(#${id})`;
 }
+const LT=i=>PAL[cur].letters?PAL[cur].letters[i]:null;
 function lab(svg,attrs,str,c){if(PAL[cur].pats)return null;const t=el("text",attrs,svg);t.textContent=str;return t}
 const stroke=i=>fSep()&&i!=null?{}:bOn()&&i!=null?{stroke:cols()[i].b,"stroke-width":1.5}:sepOn()?{stroke:"#FFFFFF","stroke-width":2}:{};
 let decoN=0;
@@ -329,25 +341,25 @@ const fit=(vals,n)=>vals.length<=n?vals:[...vals.slice(0,n-1),vals.slice(n-1).re
 // vertailukortit
 (function(){
   const box=document.getElementById("compare");
-  ["1","2A","2B","2C","2D","3"].forEach(k=>{const p=PAL[k];const d=document.createElement("div");d.className="card";d.id="card"+k;
+  ["1","2A","2B","2C","2D","2E","3"].forEach(k=>{const p=PAL[k];const d=document.createElement("div");d.className="card";d.id="card"+k;
     d.innerHTML=`<div class="head"><h3>${p.title}</h3><span class="small">${p.sub}</span></div>
-    <div class="mini"${p.borders?' style="gap:0"':""}>${p.ids.map((id,i)=>`<div style="background:${p.pats?cssPat(p.pats[i],C[id].h):C[id].h};${p.borders?`box-shadow:inset 0 0 0 2px ${C[id].b}`:""}"></div>`).join("")}</div>
+    <div class="mini"${p.borders?' style="gap:0"':""}>${p.ids.map((id,i)=>`<div style="background:${p.pats?cssPat(p.pats[i],C[id].h):C[id].h};${p.borders?`box-shadow:inset 0 0 0 2px ${C[id].b}`:""};${p.letters?`color:${C[id].txt};font:700 13px/40px var(--font-body);text-align:center`:""}">${p.letters?p.letters[i]:""}</div>`).join("")}</div>
     <ul>${p.pros.map(x=>`<li>${x}</li>`).join("")}</ul>
     <span class="small">${p.borders?"Tumma reunaviiva, valinnaisesti valkoinen erotinviiva":p.forceSep?"Vaatii aina valkoisen erotinviivan":"Vierekkäiset parit ilman erotinviivaa vähintään "+p.minAdj+":1"}</span>`;
     box.appendChild(d)});
 })();
 
-function legend(id,n){const l=document.getElementById(id);l.innerHTML="";cols().slice(0,n).forEach((c,i)=>{const s=document.createElement("span");s.innerHTML=`<i style="background:${bg(i,c.h)};${bd(i)}"></i>${c.n}`;l.appendChild(s)})}
+function legend(id,n){const l=document.getElementById(id);l.innerHTML="";cols().slice(0,n).forEach((c,i)=>{const s=document.createElement("span");s.innerHTML=LT(i)?`<i style="background:${c.h};color:${c.txt};width:18px;height:18px;font:700 11px/18px var(--font-body);font-style:normal;text-align:center">${LT(i)}</i>${c.n}`:`<i style="background:${bg(i,c.h)};${bd(i)}"></i>${c.n}`;l.appendChild(s)})}
 function clear(id){const s=document.getElementById(id);while(s.firstChild)s.removeChild(s.firstChild);return s}
 
 function renderPalette(){
   const p=PAL[cur], P=cols();
   const strip=clear("strip"); strip.className="strip"+(sepOn()?" sep":"");
-  P.forEach((c,i)=>{const d=document.createElement("div");d.style.background=bg(i,c.h);if(bOn())d.style.boxShadow=`inset 0 0 0 2px ${c.b}`;d.style.color=c.txt;d.innerHTML=`<span style="background:${c.h};padding:2px 6px;border-radius:2px">${i+1}</span>`;if(i>=p.base)d.style.flex=".7";strip.appendChild(d)});
+  P.forEach((c,i)=>{const d=document.createElement("div");d.style.background=bg(i,c.h);if(bOn())d.style.boxShadow=`inset 0 0 0 2px ${c.b}`;d.style.color=c.txt;d.innerHTML=LT(i)?`<span style="font-size:1.6rem;font-weight:700;font-family:var(--font-body)">${LT(i)}</span>`:`<span style="background:${c.h};padding:2px 6px;border-radius:2px">${i+1}</span>`;if(i>=p.base)d.style.flex=".7";strip.appendChild(d)});
   document.getElementById("striplabels").innerHTML=P.length>p.base?`<span>1–${p.base} perusosa</span><span>${p.base+1}${P.length>p.base+1?"–"+P.length:""} laajennus</span>`:`<span>1–${P.length}</span><span>ei laajennusta</span>`;
   const tb=clear("tbody");
   P.forEach((c,i)=>{const tr=document.createElement("tr");if(i>=p.base)tr.className="extrow";
-    tr.innerHTML=`<td>${i+1}</td><td><span class="sw" style="background:${bg(i,c.h)};${bd(i)}"></span></td><td>${c.n}${p.patNames?`<br><span class="small">${p.patNames[i]}</span>`:""}</td>
+    tr.innerHTML=`<td>${i+1}</td><td><span class="sw" style="background:${bg(i,c.h)};${bd(i)}"></span></td><td>${c.n}${p.patNames?`<br><span class="small">${p.patNames[i]}</span>`:""}${p.letters?`<br><span class="small">kirjain ${p.letters[i]}</span>`:""}</td>
     <td><button class="copy" type="button" data-hex="${c.h}" aria-label="Kopioi ${c.h}">${c.h}</button></td>
     <td>${c.t?`<code>${c.t}</code>`:`<span class="tag">uusi, johdettu</span>`}${c.bt&&p.borders?`<br><span class="small">reuna <code>${c.bt}</code> ${c.b}</span>`:""}</td>
     <td class="ok">${p.borders?(bOn()?`${f(c.w)}<br><span class="small">reuna ${f(c.bw)} ${Math.max(c.w,c.bw)>=3?"✓":"✗ alle 3:1"}</span>`:`${f(c.w)}<br><span class="small">valkoisella viivalla ${c.w>=3?"✓":"✗ alle 3:1"}</span>`):f(c.w)}</td><td>${p.nx[i]}${p.nx[i]==="–"?"":":1"}</td>
@@ -361,9 +373,9 @@ function renderPalette(){
     const l=document.createElement("div");l.className="lbl";l.textContent=lbl;box.appendChild(l);
     const r=document.createElement("div");r.className="row";r.setAttribute("role","img");r.setAttribute("aria-label",lbl+" -simulaatio");
     if(sepOn()){r.style.gap="2px";r.style.background="#fff"}
-    cs.forEach((c,i)=>{const d=document.createElement("div");d.style.background=bg(i,c);if(bOn()){const k=["Protanopia","Deuteranopia","Tritanopia"].indexOf(lbl);d.style.boxShadow=`inset 0 0 0 2px ${k<0?P[i].b:P[i].bcvd[k]}`}r.appendChild(d)});box.appendChild(r)});
-  ["1","2A","2B","2C","2D","3"].forEach(k=>{document.getElementById("card"+k).classList.toggle("active",k===cur);document.getElementById("btn"+k).setAttribute("aria-pressed",String(k===cur))});
-  const cb=document.getElementById("sep");cb.checked=sepOn();cb.disabled=!!p.forceSep;const sn=document.getElementById("sepnote");sn.hidden=!(p.forceSep||p.borders);sn.textContent=p.borders?(sep?"Tumma reunaviiva ja niiden välissä valkoinen erotinviiva.":"Tumma reunaviiva. Voit lisätä väliin valkoisen erotinviivan."):"Vaihtoehdoissa 2A, 2B ja 3 erotinviiva on aina päällä.";
+    cs.forEach((c,i)=>{const d=document.createElement("div");d.style.background=bg(i,c);if(p.letters){d.textContent=p.letters[i];d.style.cssText+=`;color:${P[i].txt};font-weight:700;display:flex;align-items:center;justify-content:center`}if(bOn()){const k=["Protanopia","Deuteranopia","Tritanopia"].indexOf(lbl);d.style.boxShadow=`inset 0 0 0 2px ${k<0?P[i].b:P[i].bcvd[k]}`}r.appendChild(d)});box.appendChild(r)});
+  ["1","2A","2B","2C","2D","2E","3"].forEach(k=>{document.getElementById("card"+k).classList.toggle("active",k===cur);document.getElementById("btn"+k).setAttribute("aria-pressed",String(k===cur))});
+  const cb=document.getElementById("sep");cb.checked=sepOn();cb.disabled=!!p.forceSep;const sn=document.getElementById("sepnote");sn.hidden=!(p.forceSep||p.borders);sn.textContent=p.borders?(sep?"Tumma reunaviiva ja niiden välissä valkoinen erotinviiva.":"Tumma reunaviiva. Voit lisätä väliin valkoisen erotinviivan."):"Vaihtoehdoissa 2A, 2B, 2E ja 3 erotinviiva on aina päällä.";
 }
 
 function renderStack(){
@@ -373,7 +385,7 @@ function renderStack(){
   rows.forEach((r,ri)=>{const y=12+ri*(h+gap);el("text",{x:x0-8,y:y+h/2+4,"text-anchor":"end","font-size":12,fill:TXT},svg).textContent=r[0];
     const vs=fit(r[1],P.length),tot=vs.reduce((a,b)=>a+b,0);let x=x0;
     vs.forEach((v,i)=>{const w=v/tot*W;deco(svg,el("rect",{x,y,width:w,height:h,fill:paint(svg,i),...stroke(i)},svg),i);
-      if(w>24)lab(svg,{x:x+w/2,y:y+h/2+4,"text-anchor":"middle","font-size":11,"font-weight":600,fill:P[i].txt},Math.round(v/tot*100),P[i]);x+=w})});
+      {const pc=Math.round(v/tot*100),L=LT(i),str=L?(w>36?L+" "+pc:w>12?L:null):(w>24?pc:null);if(str!=null)lab(svg,{x:x+w/2,y:y+h/2+4,"text-anchor":"middle","font-size":11,"font-weight":L?700:600,fill:P[i].txt},str,P[i]);}x+=w})});
   el("text",{x:x0,y:222,"font-size":11,fill:MUT},svg).textContent="Osuus, % (esimerkkidata)";
 }
 function donut(id,lg,vals,pie){
@@ -383,7 +395,7 @@ function donut(id,lg,vals,pie){
   vals.forEach((v,i)=>{const b=a+v/tot*2*Math.PI,lg2=(b-a)>Math.PI?1:0;
     const [x1,y1]=p(a,R),[x2,y2]=p(b,R),[x3,y3]=p(b,r),[x4,y4]=p(a,r);
     deco(svg,el("path",{d:pie?`M${cx} ${cy}L${x1} ${y1}A${R} ${R} 0 ${lg2} 1 ${x2} ${y2}Z`:`M${x1} ${y1}A${R} ${R} 0 ${lg2} 1 ${x2} ${y2}L${x3} ${y3}A${r} ${r} 0 ${lg2} 0 ${x4} ${y4}Z`,fill:paint(svg,i),...stroke(i),"stroke-linejoin":"round"},svg),i);
-    const m=(a+b)/2,[tx,ty]=p(m,pie?R*.64:(R+r)/2);lab(svg,{x:tx,y:ty+4,"text-anchor":"middle","font-size":11,"font-weight":600,fill:P[i].txt},v,P[i]);a=b});
+    const m=(a+b)/2,[tx,ty]=p(m,pie?R*.64:(R+r)/2);lab(svg,{x:tx,y:ty+4,"text-anchor":"middle","font-size":11,"font-weight":LT(i)?700:600,fill:P[i].txt},LT(i)?LT(i)+" "+v:v,P[i]);a=b});
   if(!pie)el("text",{x:cx,y:cy+6,"text-anchor":"middle","font-size":18,"font-weight":700,fill:TXT},svg).textContent="100 %";
 }
 function renderGroup(){
@@ -391,29 +403,32 @@ function renderGroup(){
   const years=["2022","2023","2024","2025"],data=[[42,46,51,55],[30,28,33,31],[18,22,20,25],[12,15,19,17]];
   const x0=36,y0=190,H=170,max=60,gw=96,bw=20;
   [0,20,40,60].forEach(v=>{const y=y0-v/max*H;el("line",{x1:x0,x2:430,y1:y,y2:y,stroke:GRID},svg);el("text",{x:x0-6,y:y+4,"text-anchor":"end","font-size":11,fill:MUT},svg).textContent=v});
-  years.forEach((yr,gi)=>{const gx=x0+14+gi*gw;data.forEach((s,si)=>{const v=s[gi],hh=v/max*H;deco(svg,el("rect",{x:gx+si*bw,y:y0-hh,width:bw,height:hh,fill:paint(svg,si),...stroke(si)},svg),si)});
+  years.forEach((yr,gi)=>{const gx=x0+14+gi*gw;data.forEach((s,si)=>{const v=s[gi],hh=v/max*H;deco(svg,el("rect",{x:gx+si*bw,y:y0-hh,width:bw,height:hh,fill:paint(svg,si),...stroke(si)},svg),si);if(LT(si)&&hh>16)el("text",{x:gx+si*bw+bw/2,y:y0-hh+13,"text-anchor":"middle","font-size":11,"font-weight":700,fill:P[si].txt},svg).textContent=LT(si)});
     el("text",{x:gx+2*bw,y:y0+18,"text-anchor":"middle","font-size":12,fill:TXT},svg).textContent=yr});
 }
-const MARK=["circle","square","triangle","diamond"];
+const MARK=["circle","square","triangle","diamond","tridown"];
 function marker(svg,kind,x,y,col,sz){
   const a={fill:col,stroke:"#FFFFFF","stroke-width":1.5};
   if(kind==="circle")return el("circle",{cx:x,cy:y,r:sz,...a},svg);
   if(kind==="square")return el("rect",{x:x-sz,y:y-sz,width:sz*2,height:sz*2,...a},svg);
   if(kind==="triangle")return el("path",{d:`M${x} ${y-sz*1.25}L${x+sz*1.2} ${y+sz*.9}L${x-sz*1.2} ${y+sz*.9}Z`,...a},svg);
+  if(kind==="tridown")return el("path",{d:`M${x} ${y+sz*1.25}L${x+sz*1.2} ${y-sz*.9}L${x-sz*1.2} ${y-sz*.9}Z`,...a},svg);
   return el("path",{d:`M${x} ${y-sz*1.35}L${x+sz*1.35} ${y}L${x} ${y+sz*1.35}L${x-sz*1.35} ${y}Z`,...a},svg);
 }
 function renderLine(id,lg,pts){
   const svg=clear(id),P=cols(),dash=i=>PAL[cur].dashes&&PAL[cur].dashes[i];
   const l=document.getElementById(lg);l.innerHTML="";
-  P.slice(0,4).forEach((c,i)=>{const s=document.createElement("span");
+  const n=Math.min(pts===true?5:4,P.length);
+  P.slice(0,n).forEach((c,i)=>{const s=document.createElement("span");
     s.innerHTML=`<svg width="30" height="14" aria-hidden="true"><line x1="1" y1="7" x2="29" y2="7" stroke="${lc(c)}" stroke-width="2.5" ${dash(i)?`stroke-dasharray="${dash(i)}"`:""}/></svg>${c.n}`;
     if(pts)marker(s.querySelector("svg"),MARK[i],15,7,lc(c),4);l.appendChild(s)});
-  const xs=["2019","2020","2021","2022","2023","2024","2025"],S=[[52,44,47,53,56,58,61],[35,29,31,34,33,37,36],[24,27,30,28,32,31,34],[14,18,16,21,19,24,26]];
+  const xs=["2019","2020","2021","2022","2023","2024","2025"],S=[[52,44,47,53,56,58,61],[35,29,31,34,33,37,36],[24,27,30,28,32,31,34],[14,18,16,21,19,24,26],[5,8,7,10,11,9,13]].slice(0,n);
   const x0=36,y0=190,H=170,max=70,W=390,X=i=>x0+i*(W-10)/(xs.length-1),Y=v=>y0-v/max*H;
   [0,35,70].forEach(v=>{const y=Y(v);el("line",{x1:x0,x2:430,y1:y,y2:y,stroke:GRID},svg);el("text",{x:x0-6,y:y+4,"text-anchor":"end","font-size":11,fill:MUT},svg).textContent=v});
   xs.forEach((x,i)=>{if(i%2===0)el("text",{x:X(i),y:y0+18,"text-anchor":"middle","font-size":11,fill:MUT},svg).textContent=x});
   S.forEach((s,si)=>{el("polyline",{points:s.map((v,i)=>`${X(i)},${Y(v)}`).join(" "),fill:"none",stroke:lc(P[si]),"stroke-width":2.5,"stroke-linejoin":"round","stroke-linecap":"round",...(dash(si)?{"stroke-dasharray":dash(si),"stroke-linecap":"butt"}:{})},svg)});
-  if(pts)S.forEach((s,si)=>s.forEach((v,i)=>marker(svg,MARK[si],X(i),Y(v),lc(P[si]),4.2)));
+  if(pts)S.forEach((s,si)=>s.forEach((v,i)=>{if(pts===true||i===0||i===s.length-1)marker(svg,MARK[si],X(i),Y(v),lc(P[si]),4.2)}));
+  if(PAL[cur].letters){const ys=S.map((s,si)=>({si,y:Y(s[s.length-1])+4})).sort((a,b)=>a.y-b.y);for(let k=1;k<ys.length;k++)if(ys[k].y-ys[k-1].y<12)ys[k].y=ys[k-1].y+12;ys.forEach(o=>{el("text",{x:X(6)+9,y:o.y,"font-size":12,"font-weight":700,fill:lc(P[o.si])},svg).textContent=LT(o.si)})}
 }
 function renderMap(){
   const svg=clear("map"),P=cols();legend("lg-map",Math.min(7,P.length));
@@ -423,16 +438,17 @@ function renderMap(){
   for(let row=0;row<4;row++)for(let col=0;col<7;col++){
     const cx=60+col*w*1.55+(row%2?w*.78:0),cy=34+row*r*1.5*1.1+ (row*6);
     const pts=[];for(let i=0;i<6;i++){const a=Math.PI/180*(60*i-30);pts.push(`${cx+r*1.5*Math.cos(a)},${cy+r*1.5*Math.sin(a)}`)}
-    {const ci=cls[k++]%P.length;deco(svg,el("polygon",{points:pts.join(" "),fill:paint(svg,ci),...stroke(ci),"stroke-linejoin":"round"},svg),ci)}}
+    {const ci=cls[k++]%P.length;deco(svg,el("polygon",{points:pts.join(" "),fill:paint(svg,ci),...stroke(ci),"stroke-linejoin":"round"},svg),ci);if(LT(ci))el("text",{x:cx,y:cy+5,"text-anchor":"middle","font-size":14,"font-weight":700,fill:P[ci].txt},svg).textContent=LT(ci)}}
   document.getElementById("mapnote").textContent=PAL[cur].borders&&!bOn()?"Valkoisella erotinviivalla Kesä (1,57:1), Sumu (1,75:1) ja Kulta (2,45:1) eivät erotu valkoisesta 3:1, joten WCAG 1.4.11 ei täyty.":bOn()?"Tumma reunaviiva rajaa alueet, joten satunnaiset naapurit ovat kunnossa. Kesän ja Sumun reunat jäävät kuitenkin alle 3:1 valkoiseen.":sepOn()?"Erotinviivan kanssa jokainen alue rajautuu valkoiseen, joten satunnaiset naapurit ovat kunnossa.":"Ilman erotinviivaa kaksi vaaleaa tai kaksi tummaa aluetta voi osua vierekkäin, jolloin raja häviää. Kartoissa käytä aina erotinviivaa.";
 }
 function renderAll(){
-  renderPalette();renderStack();donut("donut","lg-donut",[28,17,15,16,13,11]);donut("donut5","lg-donut5",[31,22,19,16,12]);document.getElementById("linenote").textContent=PAL[cur].borders?"Viivoissa käytetään reunavärejä. Kesän (2,73:1) ja Sumun (2,63:1) viivat jäävät silti alle 3:1 valkoiseen.":"Viivoissa riittää 3:1 valkoiseen, joten kaikki värit kelpaavat eikä erotinviivaa tarvita.";donut("pie","lg-pie",[28,17,15,16,13,11],true);donut("pie5","lg-pie5",[31,22,19,16,12],true);renderGroup();renderLine("line","lg-line",false);renderLine("linep","lg-linep",true);renderMap();
+  renderPalette();renderStack();donut("donut","lg-donut",[28,17,15,16,13,11]);donut("donut5","lg-donut5",[31,22,19,16,12]);document.getElementById("linenote").textContent=PAL[cur].borders?"Viivoissa käytetään reunavärejä. Kesän (2,73:1) ja Sumun (2,63:1) viivat jäävät silti alle 3:1 valkoiseen.":"Viivoissa riittää 3:1 valkoiseen, joten kaikki värit kelpaavat eikä erotinviivaa tarvita.";donut("pie","lg-pie",[28,17,15,16,13,11],true);donut("pie5","lg-pie5",[31,22,19,16,12],true);renderGroup();renderLine("line","lg-line","ends");renderLine("linep","lg-linep",true);renderMap();
   document.getElementById("donutnote").textContent=PAL[cur].borders&&!bOn()?"Kuusi luokkaa ei mahdu viiteen väriin, joten kaksi pienintä on yhdistetty. "+"Valkoisella erotinviivalla Kesä (1,57:1), Sumu (1,75:1) ja Kulta (2,45:1) eivät erotu valkoisesta 3:1, joten WCAG 1.4.11 ei täyty.":PAL[cur].donut;document.getElementById("pienote").textContent=document.getElementById("donutnote").textContent.replace("Kehä sulkeutuu","Piirakka sulkeutuu kuten rengas");
   document.getElementById("donut5note").textContent=PAL[cur].borders&&!bOn()?"Valkoisella erotinviivalla Kesä (1,57:1), Sumu (1,75:1) ja Kulta (2,45:1) eivät erotu valkoisesta 3:1, joten WCAG 1.4.11 ei täyty.":bOn()?"Tumma reunaviiva rajaa sektorit, joten pariton luokkamäärä on kunnossa.":sepOn()?"Erotinviivan kanssa pariton luokkamäärä on kunnossa.":"Pariton määrä: 5. ja 1. väri ovat molemmat tummia ja kohtaavat kello 12:ssa ilman riittävää kontrastia. Laita erotinviiva päälle.";
   document.getElementById("pie5note").textContent=document.getElementById("donut5note").textContent;
 }
 document.getElementById("btn2D").addEventListener("click",()=>{cur="2D";save();renderAll()});
+document.getElementById("btn2E").addEventListener("click",()=>{cur="2E";save();renderAll()});
 document.getElementById("btn1").addEventListener("click",()=>{cur="1";save();renderAll()});
 document.getElementById("btn2C").addEventListener("click",()=>{cur="2C";save();renderAll()});
 document.getElementById("btn2A").addEventListener("click",()=>{cur="2A";save();renderAll()});
@@ -461,6 +477,9 @@ ${block("2C","stat-qual-2c")}
 
   /* Vaihtoehto 2D · 8 väriä */
 ${block("2D","stat-qual-2d")}
+
+  /* Vaihtoehto 2E · 2A:n värit + kirjaimet A–E, aina erotinviivalla */
+${PAL["2E"].ids.map((id,i)=>`  --stat-qual-2e-${i+1}: ${C[id].h}; /* ${PAL["2E"].letters[i]} · ${C[id].n} · ${C[id].t} · tekstiväri ${C[id].txt} */`).join("\n")}
 
   /* Vaihtoehto 3 · vaihtoehdon 2A värit + kuviot (valkoinen kuvio, 8–10 px välein, viiva 1,5–2 px), aina erotinviivalla */
 ${PAL["3"].ids.map((id,i)=>`  --stat-qual-3-${i+1}: ${C[id].h}; /* ${C[id].n} · ${PAL["3"].patNames[i]} · viivakaaviossa ${PAL["3"].dashes[i]?"stroke-dasharray: "+PAL["3"].dashes[i]:"yhtenäinen"} */`).join("\n")}
